@@ -9,13 +9,13 @@ class Save{
         return readFileAsync('db/db.json', 'utf8');
     }
     write(notes){
-        return writeFileAsync('db/db.json', json.stringify(notes));
+        return writeFileAsync('db/db.json', JSON.stringify(notes));
     }
     getNotes(){
         return this.read().then((notes) => {
             let parseNotes;
             try {
-                parseNotes = [].concat(json.parse(notes));
+                parseNotes = [].concat(JSON.parse(notes));
             }catch (err) {
                 parseNotes = [];
             }
